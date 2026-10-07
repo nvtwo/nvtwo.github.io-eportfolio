@@ -4,96 +4,95 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>TTTN3133 Secure Programming | Group e-Portfolio</title>
-<meta name="description" content="e-Portfolio for TTTN3133 Secure Programming: labs, vulnerability projects, reflections and skills.">
+<meta name="description" content="Group e-Portfolio for TTTN3133 Secure Programming: labs, projects, reflection, skills and resources.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Bricolage+Grotesque:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#f2f5f7; --surface:#ffffff; --ink:#12202b; --muted:#52636f; --line:#d5dee4;
-  --brand:#0e4f6e; --brand-ink:#ffffff; --good:#0a7a4f; --bad:#b3261e;
-  --code-bg:#0f1a22; --code-ink:#d8e4ea;
-  --head:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
-  --body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
-  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
-}
-@media (prefers-color-scheme:dark){
-  :root{--bg:#0c141b; --surface:#131f28; --ink:#e6eef3; --muted:#9db0bc; --line:#25384a; --brand:#5cc0e8; --brand-ink:#08202e; --good:#4cd39a; --bad:#ff8a80; --code-bg:#08111a}
+  --bg:#f8fafc; --surface:#ffffff; --navy:#0f2342; --text:#334155; --muted:#64748b;
+  --line:#e2e8f0; --blue:#1d4ed8; --blue-dark:#1e40af; --blue-soft:#eff6ff;
+  --font:"Inter","Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;
+  --radius:12px; --shadow:0 1px 2px rgba(15,35,66,.05),0 4px 12px rgba(15,35,66,.05);
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:72px}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.65;font-size:1rem}
-a{color:var(--brand)}
-:focus-visible{outline:3px solid var(--brand);outline-offset:3px;border-radius:4px}
-.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
-.skip{position:absolute;left:-999px;top:8px;background:var(--brand);color:var(--brand-ink);padding:8px 14px;border-radius:6px;z-index:100}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.7;font-size:1rem;-webkit-font-smoothing:antialiased}
+h1,h2,h3{color:var(--navy);line-height:1.2;margin:0;letter-spacing:-.02em}
+a{color:var(--blue)}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--blue);color:#fff;padding:8px 14px;border-radius:8px;z-index:100}
 .skip:focus{left:8px}
 
-/* nav */
-nav{position:sticky;top:0;z-index:50;background:var(--surface);border-bottom:1px solid var(--line)}
-nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:60px}
-.brand{font-family:var(--head);font-weight:700;color:var(--ink);text-decoration:none;white-space:nowrap}
-nav ul{display:flex;gap:4px;list-style:none;margin:0;padding:0;overflow-x:auto}
-nav ul a{display:block;padding:8px 12px;border-radius:6px;color:var(--muted);text-decoration:none;font-weight:500;font-size:.95rem;white-space:nowrap}
-nav ul a:hover{background:var(--bg);color:var(--ink)}
+/* navigation */
+nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.97);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:64px}
+.brand{font-weight:700;color:var(--navy);text-decoration:none;letter-spacing:-.01em;white-space:nowrap}
+nav ul{display:flex;gap:2px;list-style:none;margin:0;padding:0;overflow-x:auto}
+nav ul a{display:block;padding:8px 14px;border-radius:8px;color:var(--text);text-decoration:none;font-weight:500;font-size:.94rem;white-space:nowrap;transition:background .2s,color .2s}
+nav ul a:hover{background:var(--blue-soft);color:var(--blue)}
 
 /* hero */
-header.hero{padding:64px 0 56px;border-bottom:1px solid var(--line)}
-.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
-.hero h1{font-family:var(--head);font-size:clamp(2.2rem,5.5vw,3.8rem);line-height:1.05;margin:0 0 16px;letter-spacing:-.02em;font-weight:800}
-.hero p{max-width:56ch;color:var(--muted);margin:0 0 12px}
-.meta{display:grid;gap:2px;margin-top:20px;font-size:.95rem}
-.meta span{color:var(--muted)}
-.code{background:var(--code-bg);color:var(--code-ink);border-radius:10px;font-family:var(--mono);font-size:.82rem;line-height:1.7;overflow:hidden;border:1px solid var(--line)}
-.code .bar{padding:8px 14px;color:#8fa6b4;border-bottom:1px solid #223645;font-size:.75rem}
-.code pre{margin:0;padding:14px 0;overflow-x:auto}
-.code .l{display:block;padding:0 14px;white-space:pre}
-.code .del{background:rgba(255,100,90,.16);color:#ffb3ad}
-.code .add{background:rgba(70,210,150,.16);color:#9ff0cc}
+header.hero{background-color:var(--surface);background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:44px 44px;border-bottom:1px solid var(--line);padding:88px 0 80px}
+.hero .wrap{display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(2.2rem,5vw,3.5rem);font-weight:700;margin-bottom:18px}
+.hero .intro{max-width:54ch;color:var(--text);font-size:1.08rem;margin:0 0 28px}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;padding:11px 22px;border-radius:10px;font-weight:600;font-size:.95rem;text-decoration:none;border:1px solid var(--blue);background:var(--blue);color:#fff;transition:background .2s,transform .2s}
+.btn:hover{background:var(--blue-dark);transform:translateY(-1px)}
+.btn.ghost{background:var(--surface);color:var(--blue)}
+.btn.ghost:hover{background:var(--blue-soft)}
+.details{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:26px;margin:0}
+.details div+div{margin-top:16px;padding-top:16px;border-top:1px solid var(--line)}
+.details dt{font-size:.85rem;color:var(--muted);font-weight:500}
+.details dd{margin:2px 0 0;color:var(--navy);font-weight:600}
 
 /* sections */
-section{padding:64px 0;border-bottom:1px solid var(--line)}
-section h2{font-family:var(--head);font-size:clamp(1.6rem,3.5vw,2.2rem);margin:0 0 8px;letter-spacing:-.01em}
-.lede{color:var(--muted);max-width:68ch;margin:0 0 28px}
-.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:28px}
-.person{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--brand);border-radius:8px;padding:16px}
-.person h3{margin:0 0 2px;font-size:1rem;font-family:var(--head)}
-.person p{margin:2px 0;font-size:.9rem;color:var(--muted)}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;display:flex;flex-direction:column}
-.card .body{padding:18px;display:flex;flex-direction:column;gap:10px;flex:1}
-.card h3{margin:0;font-family:var(--head);font-size:1.15rem}
+section{padding:72px 0}
+section.alt{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.head{margin-bottom:32px}
+.head h2{font-size:clamp(1.6rem,3.2vw,2.1rem);font-weight:700}
+.head p{margin:10px 0 0;color:var(--muted);max-width:62ch}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-2px);box-shadow:0 2px 4px rgba(15,35,66,.06),0 10px 24px rgba(15,35,66,.08)}
+.card .body{padding:22px;display:flex;flex-direction:column;gap:10px;flex:1}
+.card h3{font-size:1.1rem}
 .card p{margin:0;font-size:.95rem}
-.tag{font-family:var(--mono);font-size:.75rem;color:var(--muted)}
-.video{position:relative;aspect-ratio:16/9;background:#000}
+.badge{align-self:flex-start;background:var(--blue-soft);color:var(--blue-dark);border-radius:999px;padding:2px 12px;font-size:.8rem;font-weight:600}
+.person dl{margin:6px 0 0;font-size:.93rem}
+.person dt{color:var(--muted);font-size:.82rem;font-weight:500;margin-top:8px}
+.person dd{margin:0}
+.video{position:relative;aspect-ratio:16/9;background:#0f172a}
 .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.refl{border-top:1px solid var(--line);padding-top:10px;color:var(--muted)}
-.refl strong{color:var(--ink)}
-.btn{display:inline-block;align-self:flex-start;margin-top:auto;background:var(--brand);color:var(--brand-ink);padding:9px 16px;border-radius:6px;text-decoration:none;font-weight:600;font-size:.92rem}
-.btn:hover{filter:brightness(1.12)}
-.problem{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px;margin-bottom:24px}
-.problem h3{margin:0 0 6px;font-family:var(--head)}
-.problem p{margin:4px 0}
-.chips{display:flex;flex-wrap:wrap;gap:10px;list-style:none;padding:0;margin:0}
-.chips li{background:var(--surface);border:1px solid var(--line);padding:7px 14px;border-radius:999px;font-size:.92rem}
-.res{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px 20px 20px 40px;margin:0}
-.res li{margin:6px 0}
-footer{padding:36px 0;color:var(--muted);font-size:.92rem}
+.reflection{border-top:1px solid var(--line);padding-top:12px;color:var(--muted)}
+.card .btn{align-self:flex-start;margin-top:auto}
+.placeholder{border:1.5px dashed #cbd5e1;border-radius:var(--radius);background:var(--bg);padding:48px 24px;text-align:center;color:var(--muted)}
+section.alt .placeholder{background:var(--bg)}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px 28px;margin-bottom:24px}
+.panel h3{font-size:1.1rem;margin-bottom:8px}
+.panel p{margin:6px 0}
+.reflection-text{max-width:70ch;font-size:1.05rem}
+.list{margin:0;padding-left:20px}
+.list li{margin:6px 0}
+footer{background:var(--navy);color:#cbd5e1;padding:40px 0;font-size:.92rem}
 footer .wrap{display:grid;gap:6px}
-footer strong{color:var(--ink)}
+footer strong{color:#fff;font-weight:600}
 
 @media (max-width:820px){
-  .hero .wrap{grid-template-columns:1fr}
-  nav .wrap{flex-direction:column;align-items:flex-start;gap:0;padding-top:8px}
+  .hero .wrap{grid-template-columns:1fr;gap:32px}
+  header.hero{padding:56px 0 52px}
+  section{padding:56px 0}
+  nav .wrap{flex-direction:column;align-items:flex-start;gap:0;padding-top:10px;padding-bottom:4px}
   nav ul{width:100%;padding-bottom:6px}
-  html{scroll-padding-top:100px}
-  .grid{grid-template-columns:1fr}
+  html{scroll-padding-top:104px}
 }
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 </style>
 </head>
 <body>
-<a class="skip" href="#home">Skip to content</a>
+<a class="skip" href="#labs">Skip to content</a>
 
 <nav aria-label="Main navigation">
   <div class="wrap">
@@ -112,67 +111,115 @@ footer strong{color:var(--ink)}
 <header class="hero" id="home">
   <div class="wrap">
     <div>
-      <h1>Writing code that holds up under attack.</h1>
-      <p><!-- EDIT: Scenario (2-3 sentences) -->[WRITE YOUR INTRO] Replace this text with 2–3 sentences describing the scenario your group worked on.</p>
-      <div class="meta">
-        <div><span>Programme:</span> <strong>TTTN3133 Secure Programming</strong></div>
-        <div><span>Instructor:</span> <strong>TS. DR. NUR HANIS SABRINA BINTI SUHAIMI</strong></div>
+      <h1>Secure Programming e-Portfolio</h1>
+      <p class="intro">[WRITE YOUR INTRO] Replace this text with 2–3 sentences describing the scenario your group worked on.</p>
+      <div class="actions">
+        <a class="btn" href="#projects">View Projects</a>
+        <a class="btn ghost" href="#labs">View Labs</a>
       </div>
     </div>
-    <figure class="code" style="margin:0" role="img" aria-label="Code diff showing a SQL query changed from string concatenation to a parameterised query">
-      <div class="bar">login.py</div>
-      <pre><code><span class="l del">- query = "SELECT * FROM users WHERE name='" + user + "'"</span><span class="l add">+ query = "SELECT * FROM users WHERE name = ?"</span><span class="l add">+ cursor.execute(query, (user,))</span></code></pre>
-    </figure>
-  </div>
-  <div class="wrap" style="margin-top:36px;display:block">
-    <h2 style="font-family:var(--head);font-size:1.3rem;margin:0">Group members</h2>
-    <div class="team" id="team"></div>
+    <dl class="details">
+      <div><dt>Programme</dt><dd>TTTN3133 Secure Programming</dd></div>
+      <div><dt>Instructor</dt><dd>TS. DR. NUR HANIS SABRINA BINTI SUHAIMI</dd></div>
+    </dl>
   </div>
 </header>
 
 <main>
-<section id="labs" aria-labelledby="labs-h">
+<section id="members" aria-labelledby="members-h">
   <div class="wrap">
-    <h2 id="labs-h">Labs</h2>
-    <p class="lede">Weekly lab exercises. Replace each video ID with your own YouTube video.</p>
-    <div class="grid" id="labs-grid"></div>
+    <div class="head"><h2 id="members-h">Group Members</h2></div>
+    <div class="grid">
+      <article class="card"><div class="body person">
+        <span class="badge">A212603</span>
+        <h3>NURAIN UMAIRAH BINTI ABDUL KADIR</h3>
+        <dl><dt>Role</dt><dd>[Your Role]</dd><dt>Contribution</dt><dd>[Contribution]</dd></dl>
+      </div></article>
+      <article class="card"><div class="body person">
+        <span class="badge">A212411</span>
+        <h3>NUR AINA NABIHA BINTI MUHD HISHAM</h3>
+        <dl><dt>Role</dt><dd>[Your Role]</dd><dt>Contribution</dt><dd>[Contribution]</dd></dl>
+      </div></article>
+      <article class="card"><div class="body person">
+        <span class="badge">A212611</span>
+        <h3>NOR AUNI BINTI AZHAR</h3>
+        <dl><dt>Role</dt><dd>[Your Role]</dd><dt>Contribution</dt><dd>[Contribution]</dd></dl>
+      </div></article>
+      <article class="card"><div class="body person">
+        <span class="badge">A209766</span>
+        <h3>DAMIA IRDINA BINTI MOHD HAFIZ</h3>
+        <dl><dt>Role</dt><dd>[Your Role]</dd><dt>Contribution</dt><dd>[Contribution]</dd></dl>
+      </div></article>
+    </div>
+  </div>
+</section>
+
+<section id="labs" class="alt" aria-labelledby="labs-h">
+  <div class="wrap">
+    <div class="head"><h2 id="labs-h">Labs</h2></div>
+    <div class="grid">
+      <!-- LAB CARD TEMPLATE: copy this block for each lab, then delete the placeholder below.
+      <article class="card">
+        <div class="video"><iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="Lab title video" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+        <div class="body">
+          <h3>Lab title</h3>
+          <p>Short description.</p>
+          <p class="reflection"><strong>Reflection:</strong> 2–3 sentences.</p>
+        </div>
+      </article>
+      -->
+    </div>
+    <div class="placeholder"><p style="margin:0">[ Laboratory content will be added here ]</p></div>
   </div>
 </section>
 
 <section id="projects" aria-labelledby="projects-h">
   <div class="wrap">
-    <h2 id="projects-h">Projects</h2>
-    <div class="problem">
-      <h3><!-- EDIT --> [NAME]</h3>
+    <div class="head"><h2 id="projects-h">Projects</h2></div>
+    <div class="panel">
+      <h3>[NAME]</h3>
       <p><strong>Problem statement:</strong> [1–2 SENTENCES]</p>
-      <p><strong>Vulnerability solution:</strong> Six cases, each with a live code implementation, demo video and reflection.</p>
     </div>
-    <div class="grid" id="projects-grid"></div>
+    <div class="grid">
+      <!-- PROJECT CARD TEMPLATE: copy this block for each case, then delete the placeholder below.
+      <article class="card">
+        <div class="video"><iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="Case title video" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+        <div class="body">
+          <h3>Case title</h3>
+          <p>Short description.</p>
+          <p class="reflection"><strong>Reflection:</strong> 2–3 sentences.</p>
+          <a class="btn" href="https://github.com/your-username/your-repo" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+        </div>
+      </article>
+      -->
+    </div>
+    <div class="placeholder"><p style="margin:0">[ Project content will be added here ]</p></div>
   </div>
 </section>
 
-<section id="reflection" aria-labelledby="reflection-h">
+<section id="reflection" class="alt" aria-labelledby="reflection-h">
   <div class="wrap">
-    <h2 id="reflection-h">Reflection &amp; learning journey</h2>
-    <p class="lede" style="color:var(--ink)">[3–4 SENTENCES] Replace this text with your overall reflection on what the group learned in Secure Programming.</p>
+    <div class="head"><h2 id="reflection-h">Reflection &amp; Learning Journey</h2></div>
+    <p class="reflection-text">[3–4 SENTENCES] Replace this text with your overall reflection on what the group learned in Secure Programming.</p>
   </div>
 </section>
 
 <section id="skills" aria-labelledby="skills-h">
   <div class="wrap">
-    <h2 id="skills-h">Skills &amp; tech stack</h2>
-    <ul class="chips" id="chips"></ul>
+    <div class="head"><h2 id="skills-h">Skills &amp; Tech Stack</h2></div>
+    <div class="placeholder"><p style="margin:0">[ Skills and tech stack will be added here ]</p></div>
   </div>
 </section>
 
-<section id="resources" aria-labelledby="resources-h" style="border-bottom:0">
+<section id="resources" class="alt" aria-labelledby="resources-h" style="border-bottom:0">
   <div class="wrap">
-    <h2 id="resources-h">Resources</h2>
-    <ul class="res">
-      <li>[APIs / libraries used: list each one here]</li>
-      <li>OWASP Top 10 and OWASP Cheat Sheet Series (secure coding references).</li>
-      <li><strong>AI acknowledgement:</strong> AI tools were used to assist with generating this portfolio page. All content was reviewed by the group members.</li>
-    </ul>
+    <div class="head"><h2 id="resources-h">Resources</h2></div>
+    <div class="panel" style="margin-bottom:0">
+      <ul class="list">
+        <li>[List of APIs / libraries used]</li>
+        <li><strong>AI assistance:</strong> [Acknowledgement of AI assistance]</li>
+      </ul>
+    </div>
   </div>
 </section>
 </main>
@@ -181,63 +228,8 @@ footer strong{color:var(--ink)}
   <div class="wrap">
     <div><strong>NURAIN UMAIRAH BINTI ABDUL KADIR</strong> (A212603) · <strong>NUR AINA NABIHA BINTI MUHD HISHAM</strong> (A212411)</div>
     <div><strong>NOR AUNI BINTI AZHAR</strong> (A212611) · <strong>DAMIA IRDINA BINTI MOHD HAFIZ</strong> (A209766)</div>
-    <div>TTTN3133 Secure Programming · <span id="year">2026</span></div>
+    <div>TTTN3133 Secure Programming · 2026</div>
   </div>
 </footer>
-
-<script>
-/* ===== EDIT YOUR CONTENT HERE ===== */
-const VIDEO_PLACEHOLDER = "VIDEO_ID"; // replace with the 11-character YouTube ID
-const REFLECT = "[2–3 SENTENCES] Write what you learned, what was difficult, and how you would improve it.";
-
-const members = [
-  {name:"NURAIN UMAIRAH BINTI ABDUL KADIR", matric:"A212603", role:"[Your Role]", contrib:"[Contribution]"},
-  {name:"NUR AINA NABIHA BINTI MUHD HISHAM", matric:"A212411", role:"[Your Role]", contrib:"[Contribution]"},
-  {name:"NOR AUNI BINTI AZHAR", matric:"A212611", role:"[Your Role]", contrib:"[Contribution]"},
-  {name:"DAMIA IRDINA BINTI MOHD HAFIZ", matric:"A209766", role:"[Your Role]", contrib:"[Contribution]"}
-];
-
-const labs = [
-  {title:"Lab 1", desc:"[Short description of the lab]", video:VIDEO_PLACEHOLDER, reflection:REFLECT},
-  {title:"Lab 2", desc:"[Short description of the lab]", video:VIDEO_PLACEHOLDER, reflection:REFLECT},
-  {title:"Lab 3", desc:"[Short description of the lab]", video:VIDEO_PLACEHOLDER, reflection:REFLECT}
-];
-
-const GH = "https://github.com/your-username/your-repo"; // replace per case
-const cases = [
-  {title:"Case 1: Login Test", desc:"Live code vulnerability implementation for the login flow.", video:VIDEO_PLACEHOLDER, repo:GH, reflection:REFLECT},
-  {title:"Case 2: Data 1", desc:"Live code vulnerability implementation for data handling.", video:VIDEO_PLACEHOLDER, repo:GH, reflection:REFLECT},
-  {title:"Case 3: Data 2", desc:"Live code vulnerability implementation for data handling.", video:VIDEO_PLACEHOLDER, repo:GH, reflection:REFLECT},
-  {title:"Case 4: SQL Injection", desc:"Live code vulnerability implementation for SQL injection.", video:VIDEO_PLACEHOLDER, repo:GH, reflection:REFLECT},
-  {title:"Case 5: Placeholder 1", desc:"Live code vulnerability implementation.", video:VIDEO_PLACEHOLDER, repo:GH, reflection:REFLECT},
-  {title:"Case 6: Placeholder 2", desc:"Live code vulnerability implementation.", video:VIDEO_PLACEHOLDER, repo:GH, reflection:REFLECT}
-];
-
-const skills = ["SQL Injection","Secure Coding","Input Validation","Authentication","Python","Git & GitHub"]; // replace with your list
-/* ===== END EDIT ===== */
-
-const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-
-document.getElementById("team").innerHTML = members.map(m =>
-  `<article class="person"><h3>${esc(m.name)}</h3><p>Matric No: ${esc(m.matric)}</p><p>Role: ${esc(m.role)}</p><p>Contribution: ${esc(m.contrib)}</p></article>`
-).join("");
-
-function card(c, i, kind){
-  const btn = c.repo ? `<a class="btn" href="${esc(c.repo)}" target="_blank" rel="noopener noreferrer">View on GitHub</a>` : "";
-  return `<article class="card">
-    <div class="video"><iframe src="https://www.youtube.com/embed/${esc(c.video)}" title="${esc(c.title)} video" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-    <div class="body">
-      <span class="tag">${kind}</span>
-      <h3>${esc(c.title)}</h3>
-      <p>${esc(c.desc)}</p>
-      <p class="refl"><strong>Reflection:</strong> ${esc(c.reflection)}</p>
-      ${btn}
-    </div></article>`;
-}
-document.getElementById("labs-grid").innerHTML = labs.map((c,i)=>card(c,i,"Lab")).join("");
-document.getElementById("projects-grid").innerHTML = cases.map((c,i)=>card(c,i,"Project case")).join("");
-document.getElementById("chips").innerHTML = skills.map(s=>`<li>${esc(s)}</li>`).join("");
-document.getElementById("year").textContent = new Date().getFullYear();
-</script>
 </body>
 </html>
