@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TTTN3133 Secure Programming e-Portfolio</title>
+<title>TTTN3133 Secure Programming Group e-Portfolio</title>
 <meta name="description" content="Group e-Portfolio for TTTN3133 Secure Programming: labs, projects, reflection, skills and resources.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -89,6 +89,34 @@ footer strong{color:#fff;font-weight:600}
   html{scroll-padding-top:104px}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+
+/* ---- visual refinements ---- */
+body{background:#f5f8fc}
+::selection{background:#bfdbfe;color:var(--navy)}
+.brand{display:flex;align-items:center;gap:10px}
+.brand::before{content:"";width:20px;height:24px;background:linear-gradient(160deg,#2563eb,#1e3a8a);clip-path:polygon(50% 0,100% 18%,100% 55%,50% 100%,0 55%,0 18%)}
+header.hero{background-image:radial-gradient(60% 90% at 92% 0%,rgba(37,99,235,.12),transparent 70%),linear-gradient(#e9eef6 1px,transparent 1px),linear-gradient(90deg,#e9eef6 1px,transparent 1px);background-size:auto,48px 48px,48px 48px;padding:112px 0 104px}
+.hero h1{font-size:clamp(2.4rem,5.6vw,4rem);font-weight:800;letter-spacing:-.03em;line-height:1.08;margin-bottom:22px}
+.hero h1::after{content:"";display:block;width:64px;height:4px;border-radius:4px;background:var(--blue);margin-top:24px}
+.hero .intro{font-size:1.12rem;line-height:1.75}
+.details{border-top:4px solid var(--blue);padding:30px;box-shadow:0 2px 4px rgba(15,35,66,.05),0 18px 40px rgba(15,35,66,.08)}
+section{padding:88px 0}
+.head h2::after{content:"";display:block;width:44px;height:3px;border-radius:3px;background:var(--blue);margin-top:14px}
+.head{margin-bottom:40px}
+.card{border-radius:16px}
+.card:hover{border-color:#bfdbfe}
+.card .body{padding:26px;gap:12px}
+.card h3{font-size:1.15rem}
+.video{border-bottom:1px solid var(--line)}
+.pr{display:flex;align-items:center;gap:12px}
+.avatar{width:46px;height:46px;border-radius:50%;background:var(--blue-soft);color:var(--blue-dark);border:1px solid #dbeafe;display:grid;place-items:center;font-weight:700;font-size:.95rem;letter-spacing:.02em}
+.btn{box-shadow:0 2px 6px rgba(29,78,216,.22)}
+.btn.ghost{box-shadow:none;border-color:#bfdbfe}
+.panel{border-left:4px solid var(--blue)}
+.reflection-text{font-size:1.15rem;line-height:1.85;color:var(--navy);border-left:4px solid #bfdbfe;padding-left:24px;max-width:72ch}
+.placeholder{border-radius:16px;background:var(--surface)}
+footer{border-top:4px solid var(--blue);padding:44px 0}
+@media (max-width:820px){header.hero{padding:64px 0 56px}section{padding:60px 0}}
 </style>
 </head>
 <body>
@@ -131,22 +159,22 @@ footer strong{color:#fff;font-weight:600}
     <div class="head"><h2 id="members-h">Group Members</h2></div>
     <div class="grid">
       <article class="card"><div class="body person">
-        <span class="badge">A212603</span>
+        <div class="pr"><span class="avatar" aria-hidden="true">NU</span><span class="badge">A212603</span></div>
         <h3>NURAIN UMAIRAH BINTI ABDUL KADIR</h3>
         <dl><dt>Role</dt><dd>[Your Role]</dd><dt>Contribution</dt><dd>[Contribution]</dd></dl>
       </div></article>
       <article class="card"><div class="body person">
-        <span class="badge">A212411</span>
+        <div class="pr"><span class="avatar" aria-hidden="true">NA</span><span class="badge">A212411</span></div>
         <h3>NUR AINA NABIHA BINTI MUHD HISHAM</h3>
         <dl><dt>Role</dt><dd>[Your Role]</dd><dt>Contribution</dt><dd>[Contribution]</dd></dl>
       </div></article>
       <article class="card"><div class="body person">
-        <span class="badge">A212611</span>
+        <div class="pr"><span class="avatar" aria-hidden="true">NA</span><span class="badge">A212611</span></div>
         <h3>NOR AUNI BINTI AZHAR</h3>
         <dl><dt>Role</dt><dd>[Your Role]</dd><dt>Contribution</dt><dd>[Contribution]</dd></dl>
       </div></article>
       <article class="card"><div class="body person">
-        <span class="badge">A209766</span>
+        <div class="pr"><span class="avatar" aria-hidden="true">DI</span><span class="badge">A209766</span></div>
         <h3>DAMIA IRDINA BINTI MOHD HAFIZ</h3>
         <dl><dt>Role</dt><dd>[Your Role]</dd><dt>Contribution</dt><dd>[Contribution]</dd></dl>
       </div></article>
@@ -256,14 +284,14 @@ footer strong{color:#fff;font-weight:600}
 <section id="reflection" class="alt" aria-labelledby="reflection-h">
   <div class="wrap">
     <div class="head"><h2 id="reflection-h">Reflection &amp; Learning Journey</h2></div>
-    <p class="reflection-text">Replace this text with your overall reflection on what the group learned in Secure Programming.</p>
+    <p class="reflection-text">[3–4 SENTENCES] Replace this text with your overall reflection on what the group learned in Secure Programming.</p>
   </div>
 </section>
 
 <section id="skills" aria-labelledby="skills-h">
   <div class="wrap">
     <div class="head"><h2 id="skills-h">Skills &amp; Tech Stack</h2></div>
-    <div class="placeholder"><p style="margin:0">SQL Injection, Python, Room, Retrofit, Firebase Firestore, ML Kit, CameraX</p></div>
+    <div class="placeholder"><p style="margin:0">[SQL Injection, Python, Room, Retrofit, Firebase Firestore, ML Kit, CameraX</p></div>
   </div>
 </section>
 
@@ -276,7 +304,7 @@ footer strong{color:#fff;font-weight:600}
         <li><strong>AI assistance:</strong> Artificial Intelligence (AI) tools were used as supplementary resources during the development of this e-Portfolio. 
         AI assistance was mainly used to support brainstorming, improve the clarity and structure of written content, and provide guidance on HTML, CSS, and 
         JavaScript implementation. All content was reviewed, edited, and verified by the group members to ensure that the final work reflects our own understanding, 
-        contributions, and learning outcomes. AI was used as a supporting tool and not as a replacement for our own work and decision-making</li>
+        contributions, and learning outcomes. AI was used as a supporting tool and not as a replacement for our own work and decision-making.</li>
       </ul>
     </div>
   </div>
